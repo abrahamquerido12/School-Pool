@@ -13,13 +13,116 @@ import {
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "../components/Button";
+import BaseLayout from "../components/BaseLayout";
+import Input from "../components/Input";
 
-const horizontalLogo = require("../assets/horizontal_logo.png");
-const background = require("../assets/background.png");
+const logo = require("../assets/logo.png");
 
 // create a component
 const Signup = () => {
   const navigation = useNavigation();
+
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [firstLastName, setFirstLastName] = React.useState("");
+  const [secondLastName, setSecondLastName] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
+
+  const [steps, setSteps] = React.useState(1);
+
+  const renderSteps = () => {
+    switch (steps) {
+      case 1:
+        return (
+          <View style={styles.form}>
+            <Input
+              label={"Nombre"}
+              placeholder={"Nombre"}
+              onChangeText={(text) => setName(text)}
+              value={name}
+            />
+            <Input
+              label={"Email"}
+              placeholder={"Email"}
+              onChangeText={(text) => setEmail(text)}
+              value={email}
+            />
+            <Input
+              label={"Apellido Paterno"}
+              placeholder={"Apellido Paterno"}
+              onChangeText={(text) => setFirstLastName(text)}
+              value={firstLastName}
+            />
+            <Input
+              label={"Apellido Materno"}
+              placeholder={"Apellido Materno"}
+              onChangeText={(text) => setSecondLastName(text)}
+              value={secondLastName}
+            />
+            <Button
+              label="Siguiente"
+              theme="primary"
+              cxStyles={{
+                marginTop: 10,
+              }}
+              onPress={() => setSteps(2)}
+            />
+          </View>
+        );
+      case 2:
+        return (
+          <View style={styles.form}>
+            <Input
+              label={"Contraseña"}
+              placeholder={"Contraseña"}
+              onChangeText={(text) => setPassword(text)}
+              value={password}
+              secureTextEntry={true}
+            />
+            <Input
+              label={"Confirmar Contraseña"}
+              placeholder={"Confirmar Contraseña"}
+              onChangeText={(text) => setConfirmPassword(text)}
+              value={confirmPassword}
+              secureTextEntry={true}
+            />
+            <Button
+              label="Crear Cuenta"
+              theme="primary"
+              cxStyles={{
+                marginTop: 50,
+              }}
+            />
+          </View>
+        );
+
+      default:
+        return (
+          <View style={styles.form}>
+            <Input
+              label={"Contraseña"}
+              placeholder={"Contraseña"}
+              onChangeText={(text) => setPassword(text)}
+              value={password}
+              secureTextEntry={true}
+            />
+            <Input
+              label={"Confirmar Contraseña"}
+              placeholder={"Confirmar Contraseña"}
+              onChangeText={(text) => setConfirmPassword(text)}
+              value={confirmPassword}
+              secureTextEntry={true}
+            />
+            <Button
+              label="Siguiente"
+              theme="primary"
+              onPress={() => setSteps(3)}
+            />
+          </View>
+        );
+    }
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -28,110 +131,46 @@ const Signup = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <ImageBackground source={background} style={styles.background}>
-        {/* View for header (back btn and logo) */}
-        <SafeAreaView
+    <BaseLayout>
+      <View style={styles.header}>
+        <Image source={logo} style={styles.logo} />
+      </View>
+      {renderSteps()}
+      <View
+        style={{
+          paddingHorizontal: 15,
+        }}
+      >
+        {/* <Button label="Crear Cuenta" theme="primary" />
+        . */}
+      </View>
+
+      <View style={styles.noAccountView}>
+        <Text
           style={{
-            flex: 1,
-            backgroundColor: "transparent",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            paddingHorizontal: 20,
-            paddingTop: 20,
-            width: "100%",
+            color: "#A7A7A7",
+            fontSize: 16,
+            marginBottom: 50,
           }}
         >
-          <View style={styles.header}>
-            <Pressable
-              style={{
-                width: 50,
-                height: 50,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              onPress={() => navigation.goBack()}
-            >
-              <Ionicons
-                style={styles.icon}
-                name="chevron-back"
-                size={28}
-                color="white"
-              />
-            </Pressable>
-            <Image source={horizontalLogo} style={styles.logo} />
-          </View>
-
-          <Text style={styles.title}>Regístrate</Text>
-
-          <View style={styles.form}>
-            <TextInput
-              placeholderTextColor="#A7A7A7"
-              style={styles.input}
-              placeholder="Nombre"
-            />
-            <TextInput
-              placeholderTextColor="#A7A7A7"
-              style={styles.input}
-              placeholder="Apellidos"
-            />
-            <TextInput
-              placeholderTextColor="#A7A7A7"
-              style={styles.input}
-              placeholder="Correo Institucional"
-            />
-            <TextInput
-              placeholderTextColor="#A7A7A7"
-              style={styles.input}
-              placeholder="Contraseña"
-            />
-            <TextInput
-              placeholderTextColor="#A7A7A7"
-              style={styles.input}
-              placeholder="Repetir Contraseña"
-            />
-          </View>
+          ¿Ya tienes cuenta?
           <Text
             style={{
-              color: "#A7A7A7",
+              color: "#288CE9",
             }}
+            onPress={() => navigation.navigate("Login")}
           >
-            ¿Ya tienes cuenta?
-            <Text
-              style={{
-                color: "#288CE9",
-              }}
-              onPress={() => navigation.navigate("Login")}
-            >
-              {" "}
-              Inicia Sesión
-            </Text>
+            {" "}
+            Inicia Sesión
           </Text>
-          <Button label="Regístrate" theme="primary" />
-        </SafeAreaView>
-      </ImageBackground>
-    </View>
+        </Text>
+      </View>
+    </BaseLayout>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#1C1B1B",
-  },
-  background: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    textAlign: "center",
-    width: "100%",
-    height: "100%",
-  },
   header: {
-    paddingTop: 10,
-    paddingHorizontal: 0,
     width: "100%",
     display: "flex",
     flexDirection: "row",
@@ -139,37 +178,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    height: 50,
-    width: 250,
+    height: 300,
+    width: 300,
     resizeMode: "contain",
     marginRight: "auto",
     marginLeft: "auto",
   },
-  icon: {
-    marginRight: "auto",
-  },
-  title: {
-    marginTop: 50,
-    color: "white",
-    fontSize: 36,
-    fontWeight: "bold",
-  },
-
   form: {
     width: "100%",
-    marginTop: 50,
-  },
-  input: {
-    width: "100%",
-    height: 60,
-    borderRadius: 10,
-    marginBottom: 20,
     paddingHorizontal: 20,
-    borderColor: "white",
-    borderWidth: 1,
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
+  },
+  noAccountView: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

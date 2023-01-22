@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "carpool-app",
-    "slug": "carpool-app",
+    "slug": "school-pool",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,9 +14,12 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abrahamquerido.schoolpool"
     },
     "android": {
       "adaptiveIcon": {
@@ -26,6 +29,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "174b2ebf-c567-45f5-907a-baa08bc49f51"
+      }
+    },
+    "owner": "abrahamquerido"
   }
 }

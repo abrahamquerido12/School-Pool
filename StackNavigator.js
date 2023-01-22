@@ -17,7 +17,7 @@ const StackNavigatior = () => {
       <Stack.Screen name="Home" component={HomeScreen} />
     ) : (
       <>
-        <Stack.Screen name="AuthMenu" component={AuthMenu} />
+        {/* <Stack.Screen name="AuthMenu" component={AuthMenu} /> */}
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
       </>
