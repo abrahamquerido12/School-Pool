@@ -1,25 +1,38 @@
 //import liraries
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { Text } from 'react-native';
+import BaseLayout from '../components/BaseLayout';
+import DriverHome from '../components/home/DriverHome';
+// import { useAuth } from '../hooks/useAuth';
 
 // create a component
 const HomeScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text>HomeScreen</Text>
-    </View>
-  );
-};
+  const navigation = useNavigation();
 
-// define your styles
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#2c3e50",
-  },
-});
+  // const { user } = useAuth();
+  const firstTime = true;
+
+  const userType = 'driver';
+
+  const renderScreen = () => {
+    if (userType === 'driver') {
+      return <DriverHome />;
+    }
+
+    if (userType === 'passenger') {
+      return <Text>Passenger</Text>;
+    }
+  };
+
+  useEffect(() => {
+    if (firstTime) {
+      navigation.navigate('CompleteProfile');
+    }
+  }, []);
+
+  return <BaseLayout>{renderScreen()}</BaseLayout>;
+};
 
 //make this component available to the app
 export default HomeScreen;

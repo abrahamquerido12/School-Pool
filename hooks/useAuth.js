@@ -1,15 +1,18 @@
-//import liraries
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from 'react';
 
-const AuthContext = React.createContext({});
+const AuthContext = React.createContext({
+  user: null,
+  setUser: () => {},
+});
 
-// create a component
 export const AuthProvider = ({ children }) => {
+  const [user, setUser] = React.useState(null);
+
   return (
     <AuthContext.Provider
       value={{
-        user: null,
+        user,
+        setUser,
       }}
     >
       {children}

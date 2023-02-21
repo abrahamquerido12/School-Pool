@@ -1,17 +1,10 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { KeyboardAvoidingView } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { AuthProvider } from "./hooks/useAuth";
-import StackNavigatior from "./StackNavigator";
+import { AuthProvider } from './hooks/useAuth';
+import StackNavigatior from './StackNavigator';
 
 export default function App() {
   const queryClient = new QueryClient();
