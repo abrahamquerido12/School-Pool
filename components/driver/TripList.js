@@ -1,14 +1,17 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import NoScheduleCard from './NoScheduleCard';
 import NoVehicleCard from './NoVehicleCard';
 import Trip from './Trip';
 
 const TripList = () => {
   const vehicle = null;
+  const schedule = null;
   const trips = [];
 
   const renderTrips = () => {
     if (!vehicle) return <NoVehicleCard />;
+    if (!schedule) return <NoScheduleCard />;
 
     return (
       <View>

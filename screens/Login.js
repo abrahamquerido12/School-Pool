@@ -1,17 +1,17 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { useLayoutEffect } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect } from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-import Button from "../components/Button";
-import { login } from "../API/handlers";
-import BaseLayout from "../components/BaseLayout";
-import Input from "../components/Input";
+import Button from '../components/Button';
+import { login } from '../API/handlers';
+import BaseLayout from '../components/BaseLayout';
+import Input from '../components/Input';
 
-const logo = require("../assets/logo.png");
+const logo = require('../assets/logo.png');
 
 const Login = () => {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   const navigation = useNavigation();
 
@@ -37,14 +37,14 @@ const Login = () => {
       </View>
       <View style={styles.form}>
         <Input
-          label={"Correo Institucional"}
-          placeholder={"Correo Institucional"}
+          label={'Correo Institucional'}
+          placeholder={'Correo Institucional'}
           onChangeText={(text) => setEmail(text)}
           value={email}
         />
         <Input
-          label={"Contraseña"}
-          placeholder={"Contraseña"}
+          label={'Contraseña'}
+          placeholder={'Contraseña'}
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
@@ -63,7 +63,7 @@ const Login = () => {
       <View style={styles.noAccountView}>
         <Text
           style={{
-            color: "#A7A7A7",
+            color: '#A7A7A7',
             fontSize: 16,
             marginBottom: 50,
           }}
@@ -71,11 +71,11 @@ const Login = () => {
           ¿Aún no tienes cuenta?
           <Text
             style={{
-              color: "#288CE9",
+              color: '#288CE9',
             }}
-            onPress={() => navigation.navigate("Signup")}
+            onPress={() => navigation.navigate('Signup')}
           >
-            {" "}
+            {' '}
             Regístrate
           </Text>
         </Text>
@@ -88,24 +88,24 @@ const styles = StyleSheet.create({
   logo: {
     height: 300,
     width: 300,
-    resizeMode: "contain",
-    marginRight: "auto",
-    marginLeft: "auto",
+    resizeMode: 'contain',
+    marginRight: 'auto',
+    marginLeft: 'auto',
   },
 
   form: {
-    width: "100%",
+    width: '100%',
     marginTop: 100,
     paddingHorizontal: 20,
   },
   forgotPassword: {
-    color: "#A7A7A7",
+    color: '#A7A7A7',
     marginBottom: 20,
   },
   noAccountView: {
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 10,
   },
 });

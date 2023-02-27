@@ -2,7 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import BaseLayout from '../components/BaseLayout';
-import AddVehicleScreen from '../components/completeProfile/driver/AddVehicle';
 import UserType from '../components/completeProfile/UserType';
 
 const CompleteProfile = () => {

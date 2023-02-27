@@ -10,7 +10,7 @@ const BaseLayout = ({ children }) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{ flex: 1, backgroundColor: '#fff' }}
+      style={{ flex: 1, backgroundColor: '#fff', height: '100%' }}
     >
       <ScrollView style={{ flex: 1 }} bounces={false}>
         <SafeAreaView

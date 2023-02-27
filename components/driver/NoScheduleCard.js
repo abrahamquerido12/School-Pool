@@ -4,20 +4,20 @@ import { Text, StyleSheet } from 'react-native';
 import Button from '../Button';
 import CardContainer from '../CardContainer';
 
-const NoVehicleCard = () => {
+const NoScheduleCard = () => {
   const navigation = useNavigation();
 
   const handleAddVehiclePress = () => {
-    navigation.navigate('AddVehicle');
+    navigation.navigate('AddSchedule');
   };
 
   return (
     <CardContainer>
-      <Text style={styles.title}>No hay vehículo configurado</Text>
+      <Text style={styles.title}>No hay horario configurado</Text>
 
       <Text style={styles.description}>
-        No has configurado ningún vehículo. Por favor, configura tu vehículo
-        para poder usar la aplicación.
+        No has configurado ningún horario. Por favor, configura tu horario para
+        poder recibir solicitudes de viaje.
       </Text>
       <Button
         cxStyles={{
@@ -29,7 +29,7 @@ const NoVehicleCard = () => {
         cxLabelStyles={{
           fontSize: 14,
         }}
-        label={'Agregar vehículo'}
+        label={'Agregar horario'}
       />
     </CardContainer>
   );
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NoVehicleCard;
+export default NoScheduleCard;

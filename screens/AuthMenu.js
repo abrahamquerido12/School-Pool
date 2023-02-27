@@ -1,6 +1,6 @@
 //import liraries
-import { useNavigation } from "@react-navigation/native";
-import React, { Component, useLayoutEffect } from "react";
+import { useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect } from 'react';
 import {
   ImageBackground,
   View,
@@ -8,11 +8,10 @@ import {
   StyleSheet,
   Image,
   Pressable,
-} from "react-native";
-import Button from "../components/Button";
+} from 'react-native';
 
-const logo = require("../assets/logo.png");
-const background = require("../assets/background.png");
+const logo = require('../assets/logo.png');
+const background = require('../assets/background.png');
 
 const AuthMenu = () => {
   const navigation = useNavigation();
@@ -38,13 +37,13 @@ const AuthMenu = () => {
         <View style={styles.buttons}>
           <Pressable
             style={styles.registerBtn}
-            onPress={() => handelPress("Signup")}
+            onPress={() => handelPress('Signup')}
           >
             <Text style={styles.btnLabel}>Regístrate</Text>
           </Pressable>
           <Pressable
             style={styles.loginBtn}
-            onPress={() => handelPress("Login")}
+            onPress={() => handelPress('Login')}
           >
             <Text style={styles.btnLabel}>Inicia Sesión</Text>
           </Pressable>
@@ -58,54 +57,54 @@ const AuthMenu = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#1C1B1B",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1C1B1B',
   },
   background: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    height: "100%",
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
   },
   logo: {
     width: 150,
     height: 150,
-    resizeMode: "contain",
+    resizeMode: 'contain',
     marginTop: 170,
   },
   leyend: {
-    color: "#A0A0A0",
+    color: '#A0A0A0',
     fontSize: 18,
     width: 300,
-    textAlign: "center",
+    textAlign: 'center',
   },
   buttons: {
-    width: "100%",
-    marginTop: "auto",
+    width: '100%',
+    marginTop: 'auto',
     marginBottom: 20,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   btnLabel: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   registerBtn: {
-    width: "100%",
+    width: '100%',
     height: 70,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     margin: 10,
-    backgroundColor: "#3EA69B",
+    backgroundColor: '#3EA69B',
   },
   loginBtn: {
-    width: "100%",
+    width: '100%',
     height: 60,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     margin: 10,
   },
 });

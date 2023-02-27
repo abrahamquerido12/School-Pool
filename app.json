@@ -12,11 +12,10 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/174b2ebf-c567-45f5-907a-baa08bc49f51"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.abrahamquerido.schoolpool"
@@ -35,6 +34,9 @@
         "projectId": "174b2ebf-c567-45f5-907a-baa08bc49f51"
       }
     },
-    "owner": "abrahamquerido"
+    "owner": "abrahamquerido",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }

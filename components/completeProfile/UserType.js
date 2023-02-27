@@ -22,7 +22,7 @@ const UserType = ({ onUserTypeSelect }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Yo soy:</Text>
+      <Text style={styles.title}>Yo soy</Text>
 
       <View style={styles.buttonsContainer}>
         <Pressable onPress={handleDriverPress} style={styles.button}>
@@ -46,9 +46,11 @@ const UserType = ({ onUserTypeSelect }) => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 200,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    height: '100%',
   },
   logo: {
     height: 150,
@@ -57,22 +59,20 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: 'normal',
     marginBottom: 10,
   },
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '80%',
-    marginBottom: 100,
   },
   button: {
-    backgroundColor: 'rgba(224, 224, 224, 0.5)',
     borderWidth: 1,
     borderColor: '#D9D9D9',
     borderRadius: 7,
-    shadowColor: '#000',
+
     shadowOffset: {
       width: 0,
       height: 2,
@@ -80,7 +80,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 2,
-    paddingVertical: 60,
+    backgroundColor: '#fff',
+    border: '1px solid #F5F5F5',
+
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
