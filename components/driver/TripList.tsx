@@ -7,7 +7,11 @@ import Trip from './Trip';
 const TripList = () => {
   const vehicle = null;
   const schedule = null;
-  const trips = [];
+  const trips: {
+    id: string;
+    origin: string;
+    destination: string;
+  }[] = [];
 
   const renderTrips = () => {
     if (!vehicle) return <NoVehicleCard />;

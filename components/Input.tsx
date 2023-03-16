@@ -1,14 +1,27 @@
 import React from 'react';
 import { StyleSheet, TextInput } from 'react-native';
 
-const Input = ({ label, value, onChange }) => {
+interface InputProps {
+  placeholder: string;
+  value: string;
+  onChange: (text: string) => void;
+  secureTextEntry?: boolean;
+}
+
+const Input = ({
+  placeholder,
+  value,
+  onChange,
+  secureTextEntry = false,
+}: InputProps) => {
   return (
     <TextInput
       placeholderTextColor="#A7A7A7"
       style={styles.input}
-      placeholder={label}
+      placeholder={placeholder}
       onChangeText={onChange}
       value={value}
+      secureTextEntry={secureTextEntry}
     />
   );
 };
@@ -25,7 +38,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderColor: 'white',
     borderWidth: 1,
-    color: 'white',
+    color: 'black',
     fontSize: 18,
     fontWeight: 'normal',
   },

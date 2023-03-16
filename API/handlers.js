@@ -1,9 +1,20 @@
-import API from "./http-common";
+import API from './http-common';
 
 export const login = async (email, password) => {
-  // use axios to post to the login endpoint
-  return await API.post("/auth/signin", {
+  return await API.post('/auth/signin', {
     email,
     password,
+  });
+};
+
+export const signup = async (data) => {
+  return await API.post('/auth/signup', {
+    ...data,
+  });
+};
+
+export const updateUser = async (id, data) => {
+  return await API.patch(`/user/${id}`, {
+    data,
   });
 };

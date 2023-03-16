@@ -3,20 +3,23 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useLayoutEffect } from 'react';
 import { useEffect } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { signup } from '../API/handlers';
 
 import BaseLayout from '../components/BaseLayout';
 import One from '../components/signup/steps/One';
 import Two from '../components/signup/steps/Two';
 import { useAuth } from '../hooks/useAuth';
+import { StackNavigationProp } from '../StackNavigator';
+import { validateData } from '../utils';
 
 const logo = require('../assets/logo.png');
 
 // create a component
 const Signup = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp>();
 
   // bring useauth from context
-  const { user, setUser } = useAuth();
+  const { user, setUser, setToken } = useAuth();
 
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
@@ -27,11 +30,23 @@ const Signup = () => {
 
   const [steps, setSteps] = React.useState(1);
 
-  const handleCreateAccount = () => {
-    setUser('TestUser');
-  };
+  const handleCreateAccount = async () => {
+    // const data = {
+    //   name,
+    //   email,
+    //   firstLastName,
+    //   secondLastName,
+    //   password,
+    // };
 
-  console.log(user);
+    // if (!validateData(data)) return;
+    // const response = await signup({ ...data });
+    // const token = response.data.token;
+    // console.log({ response, token });
+
+    setUser('token');
+    // setToken(token);
+  };
 
   useEffect(() => {
     if (user) {

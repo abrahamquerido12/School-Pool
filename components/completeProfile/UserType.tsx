@@ -2,8 +2,13 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useLayoutEffect } from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
+import { UserType as UserT } from '../../types/user';
 
-const UserType = ({ onUserTypeSelect }) => {
+interface UserTypeProps {
+  onUserTypeSelect: (userType: UserT) => void;
+}
+
+const UserType = ({ onUserTypeSelect }: UserTypeProps) => {
   const navigation = useNavigation();
 
   const handleDriverPress = () => {

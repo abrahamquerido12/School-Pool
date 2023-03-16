@@ -26,29 +26,13 @@ const AddVehicleScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Añadir vehículo</Text>
+      <Input placeholder="Marca" value={brand} onChange={setBrand} />
+      <Input placeholder="Modelo" value={model} onChange={setModel} />
+      <Input placeholder="Color" value={color} onChange={setColor} />
       <Input
-        style={styles.input}
-        label="Marca"
-        value={brand}
-        onChangeText={setBrand}
-      />
-      <Input
-        style={styles.input}
-        label="Modelo"
-        value={model}
-        onChangeText={setModel}
-      />
-      <Input
-        style={styles.input}
-        label="Color"
-        value={color}
-        onChangeText={setColor}
-      />
-      <Input
-        style={styles.input}
-        label="Placas"
+        placeholder="Placas"
         value={licensePlate}
-        onChangeText={setLicensePlate}
+        onChange={setLicensePlate}
       />
       <Button label={'Guardar'} theme={'primary'} onPress={handleSave} />
     </View>

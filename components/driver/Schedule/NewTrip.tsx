@@ -7,7 +7,11 @@ import {
   TextInput,
 } from 'react-native';
 
-const NewTrip = ({ handleAddTrip }) => {
+interface NewTripProps {
+  handleAddTrip: () => void;
+}
+
+const NewTrip = ({ handleAddTrip }: NewTripProps) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput style={styles.input} placeholder="Title" />
@@ -30,6 +34,12 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     padding: 8,
     marginBottom: 8,
+  },
+  addButton: {
+    backgroundColor: '#064789',
+  },
+  addButtonText: {
+    color: '#fff',
   },
 });
 

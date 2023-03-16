@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import NewTrip from './NewTrip';
 
-const Day = ({ day }) => {
+interface DayProps {
+  day: string;
+}
+
+const Day = ({ day }: DayProps) => {
   const [addNewTrip, setAddNewTrip] = useState(false);
   const [trips, setTrips] = useState([
     {

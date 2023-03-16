@@ -3,6 +3,17 @@ import { View } from 'react-native';
 import Button from '../../Button';
 import Input from '../../Input';
 
+interface TwoProps {
+  password: string;
+  confirmPassword: string;
+  setPassword: (text: string) => void;
+  setConfirmPassword: (text: string) => void;
+  styles: {
+    form: any;
+  };
+  handleCreateAccount: () => void;
+}
+
 const Two = ({
   password,
   confirmPassword,
@@ -10,20 +21,18 @@ const Two = ({
   setConfirmPassword,
   styles,
   handleCreateAccount,
-}) => {
+}: TwoProps) => {
   return (
     <View style={styles.form}>
       <Input
-        label={'Contraseña'}
         placeholder={'Contraseña'}
-        onChangeText={(text) => setPassword(text)}
+        onChange={(text) => setPassword(text)}
         value={password}
         secureTextEntry={true}
       />
       <Input
-        label={'Confirmar Contraseña'}
         placeholder={'Confirmar Contraseña'}
-        onChangeText={(text) => setConfirmPassword(text)}
+        onChange={(text) => setConfirmPassword(text)}
         value={confirmPassword}
         secureTextEntry={true}
       />

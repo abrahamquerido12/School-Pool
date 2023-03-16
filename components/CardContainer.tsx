@@ -2,7 +2,7 @@ import React from 'react';
 
 import { View, StyleSheet } from 'react-native';
 
-const CardContainer = ({ children }) => {
+const CardContainer = ({ children }: { children: React.ReactNode }) => {
   return <View style={styles.container}>{children}</View>;
 };
 

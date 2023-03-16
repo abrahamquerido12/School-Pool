@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
     "@react-native-community/datetimepicker": "^6.7.5",
+    "@react-native-firebase/app": "^17.3.1",
     "@react-navigation/native": "^6.0.14",
     "@react-navigation/native-stack": "^6.9.2",
     "@rneui/base": "^4.0.0-rc.7",
@@ -20,9 +21,12 @@
     "expo": "~47.0.3",
     "expo-status-bar": "~1.4.2",
     "expo-updates": "~0.15.6",
+    "firebase": "^9.17.2",
+    "jwt-decode": "^3.1.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-native": "0.70.5",
+    "react-native-firebase": "^5.6.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-safe-area-context": "4.4.1",
     "react-native-screens": "~3.18.0",
@@ -31,6 +35,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@types/expo": "^33.0.1",
+    "@types/expo__vector-icons": "^10.0.0",
+    "@types/react": "^18.0.28",
+    "@types/react-native": "^0.71.3",
     "eslint": "^8.34.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
@@ -38,7 +46,8 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "typescript": "^5.0.2"
   },
   "private": true
 }

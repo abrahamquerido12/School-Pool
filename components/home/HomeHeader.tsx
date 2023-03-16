@@ -2,7 +2,11 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Icon } from '@rneui/themed';
 
-const HomeHeader = ({ onSettingsClick }) => {
+interface HomeHeaderProps {
+  onSettingsClick?: () => void;
+}
+
+const HomeHeader = ({ onSettingsClick }: HomeHeaderProps) => {
   const userName = 'Abraham';
   return (
     <>

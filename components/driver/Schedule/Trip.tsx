@@ -1,8 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import CardContainer from '../CardContainer';
+import CardContainer from '../../CardContainer';
 
-const Trip = ({ trip, handleDeleteTrip, handleDisableTrip }) => {
+interface TripProps {
+  trip: {
+    title: string;
+    departureTime: string;
+    departureLocation: string;
+    isActive: boolean;
+  };
+  handleDeleteTrip: () => void;
+  handleDisableTrip: () => void;
+}
+
+const Trip = ({ trip, handleDeleteTrip, handleDisableTrip }: TripProps) => {
   return (
     <CardContainer>
       <View style={styles.trip}>

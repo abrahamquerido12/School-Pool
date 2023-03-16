@@ -2,13 +2,15 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import BaseLayout from '../components/BaseLayout';
+import { UserType as UserT } from '../types/user';
 import UserType from '../components/completeProfile/UserType';
+import { StackNavigationProp } from '../StackNavigator';
 
 const CompleteProfile = () => {
-  const navigation = useNavigation();
-  const [userType, setUserType] = useState('');
+  const navigation = useNavigation<StackNavigationProp>();
+  const [userType, setUserType] = useState<UserT>('driver');
 
-  const handleUserTypeSelect = (selectedType) => {
+  const handleUserTypeSelect = (selectedType: UserT) => {
     setUserType(selectedType);
 
     // Navigate to the next screen
@@ -17,14 +19,6 @@ const CompleteProfile = () => {
 
   // Render the appropriate screen depending on user type
   const renderScreen = () => {
-    if (userType === '') {
-      return <UserType onUserTypeSelect={handleUserTypeSelect} />;
-    }
-
-    // if (userType === 'driver') {
-    //   return <AddVehicleScreen />;
-    // }
-
     if (userType === 'passenger') {
       return (
         <View>
@@ -33,6 +27,7 @@ const CompleteProfile = () => {
         </View>
       );
     }
+    return <UserType onUserTypeSelect={handleUserTypeSelect} />;
   };
 
   return (

@@ -3,10 +3,11 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '../../StackNavigator';
 import Button from '../../components/Button';
 
 const SettingsScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp>();
 
   const handleLogout = () => {
     // Aquí puedes agregar la lógica para cerrar sesión

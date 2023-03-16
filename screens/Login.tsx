@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import { login } from '../API/handlers';
 import BaseLayout from '../components/BaseLayout';
 import Input from '../components/Input';
+import { StackNavigationProp } from '../StackNavigator';
 
 const logo = require('../assets/logo.png');
 
@@ -13,7 +14,7 @@ const Login = () => {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp>();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -24,7 +25,8 @@ const Login = () => {
   const handleClick = async () => {
     try {
       const response = await login(email, password);
-      console.log(response);
+      const token = response.data.token;
+      console.log({ response, token });
     } catch (error) {
       console.log(error);
     }
@@ -37,15 +39,13 @@ const Login = () => {
       </View>
       <View style={styles.form}>
         <Input
-          label={'Correo Institucional'}
           placeholder={'Correo Institucional'}
-          onChangeText={(text) => setEmail(text)}
+          onChange={(text) => setEmail(text)}
           value={email}
         />
         <Input
-          label={'Contraseña'}
           placeholder={'Contraseña'}
-          onChangeText={(text) => setPassword(text)}
+          onChange={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
         />
@@ -85,6 +85,9 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
+  header: {
+    width: '100%',
+  },
   logo: {
     height: 300,
     width: 300,

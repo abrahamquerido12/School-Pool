@@ -3,6 +3,23 @@ import { View } from 'react-native';
 import Button from '../../Button';
 import Input from '../../Input';
 
+interface OneProps {
+  name: string;
+  email: string;
+  firstLastName: string;
+  secondLastName: string;
+
+  setName: (text: string) => void;
+  setEmail: (text: string) => void;
+  setFirstLastName: (text: string) => void;
+  setSecondLastName: (text: string) => void;
+  setSteps: (step: number) => void;
+
+  styles: {
+    form: any;
+  };
+}
+
 const One = ({
   name,
   email,
@@ -16,32 +33,29 @@ const One = ({
   setSteps,
 
   styles,
-}) => {
+}: OneProps) => {
   return (
     <View style={styles.form}>
       <Input
-        label={'Nombre'}
         placeholder={'Nombre'}
-        onChangeText={(text) => setName(text)}
+        onChange={(text) => setName(text)}
         value={name}
       />
+
       <Input
-        label={'Email'}
-        placeholder={'Email'}
-        onChangeText={(text) => setEmail(text)}
-        value={email}
-      />
-      <Input
-        label={'Apellido Paterno'}
         placeholder={'Apellido Paterno'}
-        onChangeText={(text) => setFirstLastName(text)}
+        onChange={(text) => setFirstLastName(text)}
         value={firstLastName}
       />
       <Input
-        label={'Apellido Materno'}
         placeholder={'Apellido Materno'}
-        onChangeText={(text) => setSecondLastName(text)}
+        onChange={(text) => setSecondLastName(text)}
         value={secondLastName}
+      />
+      <Input
+        placeholder={'Email'}
+        onChange={(text) => setEmail(text)}
+        value={email}
       />
       <Button
         label="Siguiente"

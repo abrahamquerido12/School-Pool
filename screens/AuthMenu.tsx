@@ -9,15 +9,20 @@ import {
   Image,
   Pressable,
 } from 'react-native';
+import { StackNavigationProp } from '../StackNavigator';
 
 const logo = require('../assets/logo.png');
 const background = require('../assets/background.png');
 
 const AuthMenu = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp>();
 
-  const handelPress = (button) => {
-    navigation.navigate(button);
+  const handelPress = (button: string) => {
+    if (button === 'Signup') {
+      navigation.navigate('Signup');
+    } else {
+      navigation.navigate('Login');
+    }
   };
 
   useLayoutEffect(() => {

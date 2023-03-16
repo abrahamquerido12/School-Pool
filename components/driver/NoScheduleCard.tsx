@@ -8,7 +8,7 @@ const NoScheduleCard = () => {
   const navigation = useNavigation();
 
   const handleAddVehiclePress = () => {
-    navigation.navigate('AddSchedule');
+    // navigation.navigate('AddSchedule' as Never);
   };
 
   return (
@@ -20,6 +20,7 @@ const NoScheduleCard = () => {
         poder recibir solicitudes de viaje.
       </Text>
       <Button
+        theme={'primary'}
         cxStyles={{
           padding: 10,
           width: '100%',

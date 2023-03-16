@@ -2,8 +2,22 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 
+interface ButtonProps {
+  label: string;
+  theme?: 'primary' | 'secondary';
+  onPress: () => void;
+  cxStyles?: any;
+  cxLabelStyles?: any;
+}
+
 // create a component
-const Button = ({ label, theme, onPress, cxStyles, cxLabelStyles }) => {
+const Button = ({
+  label,
+  theme,
+  onPress,
+  cxStyles,
+  cxLabelStyles,
+}: ButtonProps) => {
   const renderTheme = () => {
     if (theme === 'secondary') {
       return styles.secondaryBtn;
